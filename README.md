@@ -3,6 +3,9 @@
 ## Build Setup
 
 ```bash
+# build config files
+$ node _start.js
+
 # install dependencies
 $ yarn install
 
@@ -19,13 +22,35 @@ $ yarn generate
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
+## Other commands
+
+```bash
+# Setup Husky for commitlint
+$ yarn prepare
+
+# Lint the whole project
+$ yarn lint
+
+# Lint the project Javascript
+$ yarn lint:js
+
+# Lint the project Typescript
+$ yarn lint:ts
+
+# Lint the project style
+$ yarn lint:style
+
+# Lint the whole project and fix fixable errors
+$ yarn lintfix
+```
+
 ## Special Directories
 
 You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
 
-### `assets`
+### `core`
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+The core directory contains the project's core modules and components, which are not regularly changed when you add a new module, feature into the project.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
 
@@ -48,11 +73,9 @@ This directory contains your application views and routes. Nuxt will read all th
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
 
-### `plugins`
+### `services`
 
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
+This directory contains your services to call the API.
 
 ### `static`
 

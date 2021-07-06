@@ -69,6 +69,7 @@ module.exports = {
     '@typescript-eslint/type-annotation-spacing': ['error'],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
+    'vue/component-definition-name-casing': 'error',
     'vue/array-bracket-spacing': 'error',
     'vue/arrow-spacing': 'error',
     'vue/block-spacing': 'error',

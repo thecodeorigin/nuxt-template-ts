@@ -1,5 +1,0 @@
-# Ignore all template files
-tsconfig.template.js
-
-# Ignore alias files
-aliases.config.js

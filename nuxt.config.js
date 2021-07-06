@@ -78,7 +78,11 @@ export default {
   axios: {},
 
   watch: [
-    /* '~/custom/*.js' */
+    '*.config.js',
+    '*.config.ts',
+    'app.html',
+    '.env',
+    '.nuxtignore',
   ],
 
   typescript: {
