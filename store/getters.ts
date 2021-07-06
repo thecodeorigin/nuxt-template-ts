@@ -1,6 +1,6 @@
-import { GetterTree } from 'vuex'
-import { RootState } from './state'
+import { GetterTree } from 'vuex';
+import { RootState } from './state';
 
-export type RootGetters = GetterTree<RootState, RootState>
+export type RootGetters = GetterTree<RootState, RootState>;
 
-export default {} as RootGetters
+export default {} as RootGetters;

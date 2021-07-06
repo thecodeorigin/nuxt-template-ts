@@ -4,33 +4,33 @@ export const dev = {
   /**
    * Equivalent to console.error but in dev mode only
    */
-  error: (...args: any[]): void => {
+  error: (...args: Array<any>): void => {
     if (process.env.NODE_ENV !== 'production') {
-      console.error('[Dev only]: ', ...args)
+      console.error('[Dev only]: ', ...args);
     } else {
-      console.error('Something is wrong')
+      console.error('Something is wrong');
     }
   },
   /**
    * Equivalent to console.log but in dev mode only
    */
-  log: (...args: any[]): void => {
+  log: (...args: Array<any>): void => {
     if (process.env.NODE_ENV !== 'production') {
-      console.log('[Dev only]: ', ...args)
+      console.log('[Dev only]: ', ...args);
     } else {
-      console.log('Something is wrong')
+      console.log('Something is wrong');
     }
   },
   /**
    * Equivalent to console.warn but in dev mode only
    */
-  warn: (...args: any[]): void => {
+  warn: (...args: Array<any>): void => {
     if (process.env.NODE_ENV !== 'production') {
-      console.warn('[Dev only]: ', ...args)
+      console.warn('[Dev only]: ', ...args);
     } else {
-      console.warn('Something is wrong')
+      console.warn('Something is wrong');
     }
   },
-}
+};
 
-export default dev
+export default dev;

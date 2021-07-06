@@ -1,6 +1,6 @@
-import { ActionTree } from 'vuex'
-import { AuthState } from './state'
+import { ActionTree } from 'vuex';
+import { AuthState } from './state';
 
-export type AuthAction = ActionTree<AuthState, AuthState>
+export type AuthAction = ActionTree<AuthState, AuthState>;
 
-export default {} as AuthAction
+export default {} as AuthAction;

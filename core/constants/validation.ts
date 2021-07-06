@@ -13,4 +13,4 @@ export const VALIDATION_MESSAGE = Object.freeze({
   [VALIDATION_TYPE.PHONE]: 'validate.phone',
   [VALIDATION_TYPE.ALPHA]: 'validate.alpha',
   [VALIDATION_TYPE.NUMBER]: 'validate.number',
-})
+});

@@ -1,3 +1,3 @@
 export default (val: string): string | undefined => {
-  return val.toUpperCase()
-}
+  return val.toUpperCase();
+};

@@ -10,11 +10,11 @@ module.exports = {
       '~/*': ['./*'],
       '@/*': ['./*'],
       '~~/*': ['./*'],
-      '@@/*': ['./*']
+      '@@/*': ['./*'],
     },
     // ...
     // `paths` will be automatically generated using aliases.config.js
     // ...
   },
-  exclude: ['node_modules', '.nuxt', 'dist']
-}
+  exclude: ['node_modules', '.nuxt', 'dist'],
+};

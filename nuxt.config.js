@@ -1,10 +1,11 @@
-import fs from 'fs'
-import path from 'path'
-import YAML from 'yaml'
+import fs from 'fs';
+import path from 'path';
+import YAML from 'yaml';
 
-function readYamlFile (path) {
-  const file = fs.readFileSync(path, 'utf8')
-  return YAML.parse(file)
+function readYamlFile(filePath) {
+  const file = fs.readFileSync(filePath, 'utf8');
+
+  return YAML.parse(file);
 }
 
 export default {
@@ -113,4 +114,4 @@ export default {
       },
     },
   },
-}
+};

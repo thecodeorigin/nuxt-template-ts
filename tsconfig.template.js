@@ -11,7 +11,7 @@ module.exports = {
     lib: [
       'ESNext',
       'ESNext.AsyncIterable',
-      'DOM'
+      'DOM',
     ],
     esModuleInterop: true,
     allowJs: true,
@@ -22,11 +22,11 @@ module.exports = {
     baseUrl: '.',
     paths: {
       '~/*': [
-        './*'
+        './*',
       ],
       '@/*': [
-        './*'
-      ]
+        './*',
+      ],
     },
     types: ['@nuxt/types', '@nuxtjs/axios', '@types/node', '@types/webpack-env'],
     // ...
@@ -36,6 +36,6 @@ module.exports = {
   exclude: [
     'node_modules',
     '.nuxt',
-    'dist'
+    'dist',
   ],
-}
+};

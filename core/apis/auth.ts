@@ -1,10 +1,10 @@
-import { Context } from '@nuxt/types'
-import { Inject } from '@nuxt/types/app'
-import { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
-import { NuxtAxiosInstance } from '@nuxtjs/axios'
-import dev from '@/core/utils/functions/dev'
+import { Context } from '@nuxt/types';
+import { Inject } from '@nuxt/types/app';
+import { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios';
+import { NuxtAxiosInstance } from '@nuxtjs/axios';
+import dev from '@/core/utils/functions/dev';
 
-export type AuthApi = NuxtAxiosInstance
+export interface AuthApi extends NuxtAxiosInstance {}
 
 export default ({ $axios, store, error: nuxtError }: Context, inject: Inject): void => {
   const authApi: AuthApi = $axios.create({
@@ -14,29 +14,29 @@ export default ({ $axios, store, error: nuxtError }: Context, inject: Inject): v
         'Content-Type': 'application/json',
       },
     },
-  })
+  });
 
-  const authToken: string = store.getters['auth/token']
+  const authToken: string = store.getters['auth/token'];
 
   authApi.onRequest((config: AxiosRequestConfig) => {
-    config.headers.Authorization = 'Bearer ' + authToken
-    dev.log('Auth API executed')
-  })
+    config.headers.Authorization = 'Bearer ' + authToken;
+    dev.log('Auth API executed');
+  });
 
-  authApi.onResponse((_response: AxiosResponse) => {})
+  authApi.onResponse((_response: AxiosResponse) => {});
 
-  authApi.onError((error: AxiosError) => {
-    nuxtError({
+  authApi.onError(async(error: AxiosError) => {
+    await nuxtError({
       statusCode: error.response?.status,
       message: error.message,
-    })
-    dev.error(error)
+    });
+    dev.error(error);
 
-    return Promise.resolve(false)
-  })
+    return Promise.resolve(false);
+  });
 
-  authApi.onRequestError((_err: AxiosError) => {})
-  authApi.onResponseError((_err: AxiosError) => {})
+  authApi.onRequestError((_err: AxiosError) => {});
+  authApi.onResponseError((_err: AxiosError) => {});
 
-  inject('authApi', authApi)
-}
+  inject('authApi', authApi);
+};

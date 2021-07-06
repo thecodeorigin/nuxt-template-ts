@@ -1,6 +1,6 @@
-const colors = require('./core/config/tailwind/colors')
-const screens = require('./core/config/tailwind/screens')
-const extend = require('./core/config/tailwind/extend')
+const colors = require('./core/config/tailwind/colors');
+const screens = require('./core/config/tailwind/screens');
+const extend = require('./core/config/tailwind/extend');
 module.exports = {
   mode: 'jit', // New in 2.1+
   // See tailwindCSS darkmode docs: https://tailwindcss.com/docs/dark-mode
@@ -27,4 +27,4 @@ module.exports = {
       // safeList: [/^el-/] // For element UI CSS classes
     },
   },
-}
+};

@@ -169,4 +169,4 @@ module.exports = {
   cyan: 'var(--color-cyan)',
   light: 'var(--color-light)',
   dark: 'var(--color-dark)',
-}
+};

@@ -1,6 +1,6 @@
-import { ActionTree } from 'vuex'
-import { RootState } from './state'
+import { ActionTree } from 'vuex';
+import { RootState } from './state';
 
-export type RootAction = ActionTree<RootState, RootState>
+export type RootAction = ActionTree<RootState, RootState>;
 
-export default {} as RootAction
+export default {} as RootAction;

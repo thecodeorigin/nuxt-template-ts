@@ -1,10 +1,10 @@
-import { Inject } from '@nuxt/types/app'
-import { AxiosError, AxiosResponse } from 'axios'
-import { NuxtAxiosInstance } from '@nuxtjs/axios'
-import { Context } from '@nuxt/types'
-import dev from '@/core/utils/functions/dev'
+import { Inject } from '@nuxt/types/app';
+import { AxiosError, AxiosResponse } from 'axios';
+import { NuxtAxiosInstance } from '@nuxtjs/axios';
+import { Context } from '@nuxt/types';
+import dev from '@/core/utils/functions/dev';
 
-export type ClientApi = NuxtAxiosInstance
+export interface ClientApi extends NuxtAxiosInstance {}
 
 export default ({ app, $axios, error: nuxtError }: Context, inject: Inject): void => {
   const clientApi: ClientApi = $axios.create({
@@ -14,34 +14,34 @@ export default ({ app, $axios, error: nuxtError }: Context, inject: Inject): voi
         'Content-Type': 'application/json',
       },
     },
-  })
+  });
 
   clientApi.onRequest(() => {
-    dev.log('Client API executed')
-  })
+    dev.log('Client API executed');
+  });
 
-  clientApi.onResponse((_response: AxiosResponse) => {})
+  clientApi.onResponse((_response: AxiosResponse) => {});
 
   clientApi.onError((error: AxiosError) => {
-    dev.error(error)
+    dev.error(error);
     switch (error.response?.status) {
       case 404:
         nuxtError({
           statusCode: 404,
           message: app.i18n.t('error.404'),
-        })
-        break
+        });
+        break;
       default:
         nuxtError({
           statusCode: 500,
           message: app.i18n.t('error.500'),
-        })
-        break
+        });
+        break;
     }
-  })
+  });
 
-  clientApi.onRequestError((_err: AxiosError) => {})
-  clientApi.onResponseError((_err: AxiosError) => {})
+  clientApi.onRequestError((_err: AxiosError) => {});
+  clientApi.onResponseError((_err: AxiosError) => {});
 
-  inject('clientApi', clientApi)
-}
+  inject('clientApi', clientApi);
+};

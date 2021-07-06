@@ -1,7 +1,7 @@
-import moment from 'moment'
+import moment from 'moment';
 
 export default (val: string, locale = 'vi'): string | undefined => {
-  moment.locale(locale)
+  moment.locale(locale);
 
-  return moment(val).format('Do MMMM YYYY')
-}
+  return moment(val).format('Do MMMM YYYY');
+};

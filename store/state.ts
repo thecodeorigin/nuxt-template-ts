@@ -1,6 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const state = () => ({})
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const state = () => ({});
 
-export default state
+export default state;
 
-export type RootState = ReturnType<typeof state>
+export type RootState = ReturnType<typeof state>;

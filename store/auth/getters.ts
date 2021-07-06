@@ -1,13 +1,13 @@
-import { GetterTree } from 'vuex'
-import { AuthState } from './state'
+import { GetterTree } from 'vuex';
+import { AuthState } from './state';
 
-export type AuthGetters = GetterTree<AuthState, AuthState>
+export type AuthGetters = GetterTree<AuthState, AuthState>;
 
 export default {
-  currentUser (state: AuthState) {
-    return state.data?.user
+  currentUser(state: AuthState) {
+    return state.data?.user;
   },
-  token (state: AuthState) {
-    return state.data?.token
+  token(state: AuthState) {
+    return state.data?.token;
   },
-} as AuthGetters
+} as AuthGetters;

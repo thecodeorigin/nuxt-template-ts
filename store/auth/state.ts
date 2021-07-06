@@ -1,18 +1,18 @@
 export interface ICurrentUser {
-  fullName: string
-  email: string
+  fullName: string;
+  email: string;
 }
 
 export interface IAuth {
-  user: ICurrentUser
-  token: string
+  user: ICurrentUser;
+  token: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const state = () => ({
   data: null as IAuth | null,
-})
+});
 
-export default state
+export default state;
 
-export type AuthState = ReturnType<typeof state>
+export type AuthState = ReturnType<typeof state>;
