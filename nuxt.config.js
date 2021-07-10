@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import YAML from 'yaml';
 
+require('dotenv').config();
+
 function readYamlFile(filePath) {
   const file = fs.readFileSync(filePath, 'utf8');
 
@@ -55,6 +57,8 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/dotenv',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -79,7 +83,10 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.API_URL || 'http://localhost:5000',
+    retry: { retries: 3 },
+  },
 
   watch: [
     '*.config.js',
