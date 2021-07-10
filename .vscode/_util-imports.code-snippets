@@ -1,0 +1,42 @@
+{
+  "import-components": {
+    "scope": "javascript",
+    "prefix": "import components",
+    "body": ["import { ${1} } from '@components'",],
+  },
+  "import-store": {
+    "scope": "javascript",
+    "prefix": "import store",
+    "body": ["import { ${1} } from '@store'",],
+  },
+  "import-utils": {
+    "scope": "javascript",
+    "prefix": "import utils",
+    "body": ["import { ${1} } from '@utils'",],
+  },
+  "import-core": {
+    "scope": "javascript",
+    "prefix": "import core",
+    "body": ["import { ${1} } from '@core'",],
+  },
+  "import-constants": {
+    "scope": "javascript",
+    "prefix": "import constants",
+    "body": ["import { ${1} } from '@constants'",],
+  },
+  "import-mixins": {
+    "scope": "javascript",
+    "prefix": "import mixins",
+    "body": ["import { ${1} } from '@mixins'",],
+  },
+  "import-types": {
+    "scope": "javascript",
+    "prefix": "import types",
+    "body": ["import { ${1} } from '@types'",],
+  },
+  "import-services": {
+    "scope": "javascript",
+    "prefix": "import services",
+    "body": ["import { ${1} } from '@services'",],
+  },
+}

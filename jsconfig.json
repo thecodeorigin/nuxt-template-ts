@@ -10,6 +10,14 @@
       "@@": ["./index.js", "./index.json", "./index.vue", "./index.scss", "./index.css"],
       "~~/*": ["./*"],
       "~~": ["./index.js", "./index.json", "./index.vue", "./index.scss", "./index.css"],
+      "@core/*": ["./core/*"],
+      "@core": [
+        "./core/index.js",
+        "./core/index.json",
+        "./core/index.vue",
+        "./core/index.scss",
+        "./core/index.css"
+      ],
       "@services/*": ["./services/*"],
       "@services": [
         "./services/index.js",
@@ -25,6 +33,14 @@
         "./components/index.vue",
         "./components/index.scss",
         "./components/index.css"
+      ],
+      "@store/*": ["./store/*"],
+      "@store": [
+        "./store/index.js",
+        "./store/index.json",
+        "./store/index.vue",
+        "./store/index.scss",
+        "./store/index.css"
       ],
       "@apis/*": ["./core/apis/*"],
       "@apis": [
