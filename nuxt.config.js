@@ -59,6 +59,8 @@ export default {
     '@nuxtjs/tailwindcss',
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    // https://vite.nuxtjs.org
+    'nuxt-vite',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
