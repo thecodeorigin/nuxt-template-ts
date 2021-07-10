@@ -20,6 +20,9 @@ export default (_: any, inject: any): void => {
     const moduleName = temp.length > 1 ? temp[temp.length - 1] : temp[0];
 
     switch (temp[0]) {
+      case 'mixins':
+        Vue.mixin(module);
+        break;
       case 'filters':
         Vue.filter(moduleName, module);
         break;

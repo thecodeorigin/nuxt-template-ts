@@ -14,7 +14,7 @@ const aliases = {
   '@apis': './core/apis',
   '@constants': './core/constants',
   '@mixins': './core/mixins',
-  '@models': './core/models',
+  '@types': './core/types',
   '@utils': './core/utils',
 };
 

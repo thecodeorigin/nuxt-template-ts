@@ -50,13 +50,13 @@
         "./core/mixins/index.scss",
         "./core/mixins/index.css"
       ],
-      "@models/*": ["./core/models/*"],
-      "@models": [
-        "./core/models/index.js",
-        "./core/models/index.json",
-        "./core/models/index.vue",
-        "./core/models/index.scss",
-        "./core/models/index.css"
+      "@types/*": ["./core/types/*"],
+      "@types": [
+        "./core/types/index.js",
+        "./core/types/index.json",
+        "./core/types/index.vue",
+        "./core/types/index.scss",
+        "./core/types/index.css"
       ],
       "@utils/*": ["./core/utils/*"],
       "@utils": [

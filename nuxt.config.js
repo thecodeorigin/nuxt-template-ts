@@ -39,7 +39,11 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  // components: true,
+  components: [
+    // '~/components/',
+    { path: '~/components/base/' },
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -105,7 +109,7 @@ export default {
     '@apis': path.resolve(__dirname, './core/apis'),
     '@constants': path.resolve(__dirname, './core/constants'),
     '@mixins': path.resolve(__dirname, './core/mixins'),
-    '@models': path.resolve(__dirname, './core/models'),
+    '@types': path.resolve(__dirname, './core/types'),
     '@utils': path.resolve(__dirname, './core/utils'),
   },
 

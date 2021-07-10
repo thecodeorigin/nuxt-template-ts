@@ -2,7 +2,7 @@ import { Inject } from '@nuxt/types/app';
 import { AxiosError, AxiosResponse } from 'axios';
 import { NuxtAxiosInstance } from '@nuxtjs/axios';
 import { Context } from '@nuxt/types';
-import dev from '@/core/utils/functions/dev';
+import dev from '@utils/functions/dev';
 
 export interface ClientApi extends NuxtAxiosInstance {}
 

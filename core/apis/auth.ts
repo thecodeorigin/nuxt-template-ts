@@ -2,7 +2,7 @@ import { Context } from '@nuxt/types';
 import { Inject } from '@nuxt/types/app';
 import { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios';
 import { NuxtAxiosInstance } from '@nuxtjs/axios';
-import dev from '@/core/utils/functions/dev';
+import dev from '@utils/functions/dev';
 
 export interface AuthApi extends NuxtAxiosInstance {}
 

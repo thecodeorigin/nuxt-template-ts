@@ -1,6 +1,9 @@
 <template>
   <div>
     {{ $t('hello') }}
+    <ExampleBase />
+    <!-- ProductItem is not a base component -->
+    <!-- <ProductItem /> -->
   </div>
 </template>
 

@@ -1,13 +1,10 @@
 import { GetterTree } from 'vuex';
+import { RootState } from '@/store/state';
 import { AuthState } from './state';
 
-export type AuthGetters = GetterTree<AuthState, AuthState>;
+export type AuthGetters = GetterTree<AuthState, RootState>;
 
 export default {
-  currentUser(state: AuthState) {
-    return state.data?.user;
-  },
-  token(state: AuthState) {
-    return state.data?.token;
-  },
+  currentUser: (state: AuthState): AuthUser | undefined => state.data?.user,
+  token: (state: AuthState): string | undefined => state.data?.token,
 } as AuthGetters;

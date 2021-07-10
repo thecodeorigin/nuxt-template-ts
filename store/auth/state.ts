@@ -1,16 +1,6 @@
-export interface ICurrentUser {
-  fullName: string;
-  email: string;
-}
-
-export interface IAuth {
-  user: ICurrentUser;
-  token: string;
-}
-
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const state = () => ({
-  data: null as IAuth | null,
+  data: null as AuthData | null,
 });
 
 export default state;
