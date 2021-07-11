@@ -31,7 +31,6 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/core/styles/css/all.css',
-    '@/core/styles/scss/all.scss',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -61,6 +60,8 @@ export default {
     '@nuxtjs/tailwindcss',
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    // https://www.npmjs.com/package/@nuxtjs/style-resources
+    '@nuxtjs/style-resources',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -69,6 +70,11 @@ export default {
     '@nuxtjs/axios',
     'nuxt-i18n',
   ],
+
+  styleResources: {
+    scss: ['@/core/styles/scss/all.scss'],
+    hoistUseStatements: true,
+  },
 
   i18n: {
     locales: ['en', 'vi'],
@@ -124,6 +130,11 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // https://github.com/webpack-contrib/terser-webpack-plugin#parallel
+    parallel: true,
+    cache: true,
+    // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build#hardsource
+    hardSource: process.env.NODE_ENV === 'development',
     postcss: {
       plugins: {
         tailwindcss: {},
