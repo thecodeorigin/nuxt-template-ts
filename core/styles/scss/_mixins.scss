@@ -3,6 +3,7 @@
   width: $width;
   height: $height;
 }
+
 @mixin flexBox(
   $flex: flex,
   $align: null,
@@ -18,27 +19,33 @@
   flex-wrap: $wrap;
   order: $order;
 }
+
 @mixin flexCenter() {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 @mixin centerAbsolute($direction: 'both') {
   position: absolute;
-  @if($direction == 'both') {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+
+  @if ($direction == 'both') {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-  @if($direction == 'x') {
-      left: 50%;
-      transform: translateX(-50%);
+
+  @if ($direction == 'x') {
+    left: 50%;
+    transform: translateX(-50%);
   }
-  @if($direction == 'y') {
-      top: 50%;
-      transform: translateY(-50%);
+
+  @if ($direction == 'y') {
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
+
 @mixin boxShadow(
   $x: 0,
   $y: 0,
@@ -47,27 +54,29 @@
   $color: 0,
   $inset: false
 ) {
-  @if($inset) {
-      box-shadow: inset $x $y $blur $spread $color;
-  } @else {
-      box-shadow: $x $y $blur $spread $color;
+  @if ($inset) {
+    box-shadow: inset $x $y $blur $spread $color;
+  }
+
+  @else {
+    box-shadow: $x $y $blur $spread $color;
   }
 }
 // From $breakpoint and up
 @mixin minWidth($breakpoint) {
   @media only screen and (min-width: $breakpoint) {
-      @content;
+    @content;
   }
 }
 // From $breakpoint and down
 @mixin maxWidth($breakpoint) {
   @media only screen and (max-width: $breakpoint) {
-      @content;
+    @content;
   }
 }
 // From $min-width to $max-width
 @mixin responsiveFromTo($min-width, $max-width) {
   @media (min-width: $min-width) and (max-width: $max-width) {
-      @content;
+    @content;
   }
 }
