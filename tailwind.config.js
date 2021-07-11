@@ -17,14 +17,7 @@ module.exports = {
     extend,
   },
   plugins: [],
-  purge: {
-    // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-    enabled: process.env.NODE_ENV === 'production',
-    mode: 'all',
-    preserveHtmlElements: false,
-    content: ['./app.html', './**/*.{vue,js,ts,jsx,tsx,css,scss}'],
-    options: {
-      // safeList: [/^el-/] // For element UI CSS classes
-    },
-  },
+  // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
+  // Just JIT instead
+  // purge: {},
 };
