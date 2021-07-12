@@ -56,12 +56,14 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    // https://windicss.org/guide/
+    'nuxt-windicss',
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    // https://www.npmjs.com/package/@nuxtjs/style-resources
-    '@nuxtjs/style-resources',
+    [
+      '@nuxtjs/eslint-module',
+      { fix: true },
+    ],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -70,11 +72,6 @@ export default {
     '@nuxtjs/axios',
     'nuxt-i18n',
   ],
-
-  styleResources: {
-    scss: ['@/core/styles/scss/all.scss'],
-    hoistUseStatements: true,
-  },
 
   i18n: {
     locales: ['en', 'vi'],
@@ -128,17 +125,22 @@ export default {
     '@utils': path.resolve(__dirname, './core/utils'),
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
+  terser: {
     // https://github.com/webpack-contrib/terser-webpack-plugin#parallel
     parallel: true,
     cache: true,
-    // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build#hardsource
-    hardSource: process.env.NODE_ENV === 'development',
-    postcss: {
-      plugins: {
-        tailwindcss: {},
-        autoprefixer: {},
+  },
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
+    loaders: {
+      cssModules: {
+        modules: {
+          localIdentName: process.env.NODE_ENV === 'development' ? '[local]_[hash:base64:5]' : '[hash:base64:8]',
+        },
+      },
+      scss: {
+        additionalData: '@import "@/core/styles/scss/all.scss";',
       },
     },
   },

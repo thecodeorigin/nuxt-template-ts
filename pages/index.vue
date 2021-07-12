@@ -1,9 +1,7 @@
 <template>
-  <div>
-    {{ $t('hello') }}
+  <div :class="$style.abc">
+    <span class="text-blue-400">{{ $t('hello') }}</span>
     <ExampleBase />
-    <!-- ProductItem is not a base component -->
-    <!-- <ProductItem /> -->
   </div>
 </template>
 
@@ -14,6 +12,12 @@ export default defineComponent({
   name: 'IndexPage',
 });
 </script>
+
+<style lang="scss" module>
+.abc {
+  color: $--color-red;
+}
+</style>
 
 <i18n lang="yaml">
 en:
