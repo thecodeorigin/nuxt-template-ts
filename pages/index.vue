@@ -1,6 +1,7 @@
 <template>
   <div :class="$style.abc">
-    <span class="text-blue-400">{{ $t('hello') }}</span>
+    <span class="text-primary-300">{{ $t('hello') }}</span>
+    <span class="text-warning-700">{{ $t('hello') }}</span>
     <ExampleBase />
   </div>
 </template>
