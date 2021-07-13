@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'plugin:nuxt/recommended',
+    'plugin:vue/recommended',
   ],
   parserOptions: {
     project: ['./tsconfig.json'],
@@ -142,4 +143,5 @@ module.exports = {
       },
     },
   ],
+  ignorePatterns: ['/static'],
 };
