@@ -12,11 +12,11 @@ const aliases = {
   '@core': './core',
   '@services': './services',
   '@components': './components',
+  '@constants': './constants',
   '@store': './store',
+  '@types': './types',
   '@apis': './core/apis',
-  '@constants': './core/constants',
   '@mixins': './core/mixins',
-  '@types': './core/types',
   '@utils': './core/utils',
 };
 

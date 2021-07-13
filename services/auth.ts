@@ -1,4 +1,4 @@
-import { Service, ServiceContext } from '@/core/types/service';
+import { Service, ServiceContext } from '@/types/service';
 import { AxiosResponse } from 'axios';
 
 interface AuthService extends Service {
