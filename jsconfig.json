@@ -42,6 +42,14 @@
         "./store/index.scss",
         "./store/index.css"
       ],
+      "@types/*": ["./types/*"],
+      "@types": [
+        "./types/index.js",
+        "./types/index.json",
+        "./types/index.vue",
+        "./types/index.scss",
+        "./types/index.css"
+      ],
       "@apis/*": ["./core/apis/*"],
       "@apis": [
         "./core/apis/index.js",
@@ -65,14 +73,6 @@
         "./core/mixins/index.vue",
         "./core/mixins/index.scss",
         "./core/mixins/index.css"
-      ],
-      "@types/*": ["./core/types/*"],
-      "@types": [
-        "./core/types/index.js",
-        "./core/types/index.json",
-        "./core/types/index.vue",
-        "./core/types/index.scss",
-        "./core/types/index.css"
       ],
       "@utils/*": ["./core/utils/*"],
       "@utils": [

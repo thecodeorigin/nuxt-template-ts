@@ -28,6 +28,11 @@ export default {
     ],
   },
 
+  dir: {
+    layouts: 'core/layouts',
+    middleware: 'core/middleware',
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/core/styles/css/all.css',
@@ -80,8 +85,8 @@ export default {
       fallbackLocale: 'en',
       silentFallbackWarn: true,
       messages: {
-        en: readYamlFile('./core/locales/en.yaml'),
-        vi: readYamlFile('./core/locales/vi.yaml'),
+        en: readYamlFile('./locales/en.yaml'),
+        vi: readYamlFile('./locales/vi.yaml'),
       },
     },
     vueI18nLoader: true,
@@ -116,12 +121,12 @@ export default {
     // Source folder
     '~': path.resolve(__dirname, './'),
     '@': path.resolve(__dirname, './'),
+    '@types': path.resolve(__dirname, './types'),
     '@services': path.resolve(__dirname, './services'),
+    '@constants': path.resolve(__dirname, './constants'),
     '@components': path.resolve(__dirname, './components'),
     '@apis': path.resolve(__dirname, './core/apis'),
-    '@constants': path.resolve(__dirname, './core/constants'),
     '@mixins': path.resolve(__dirname, './core/mixins'),
-    '@types': path.resolve(__dirname, './core/types'),
     '@utils': path.resolve(__dirname, './core/utils'),
   },
 
