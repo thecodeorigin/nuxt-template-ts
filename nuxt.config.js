@@ -40,6 +40,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '@/core/plugins/element-ui' },
     { src: '@/core/plugins/i18n' },
     { src: '@/core/apis/client' },
     { src: '@/core/apis/auth' },
@@ -138,6 +139,19 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    babel:
+      {
+        presets: [['es2015', { modules: false }]],
+        plugins: [
+          [
+            'component',
+            {
+              libraryName: 'element-ui',
+              styleLibraryName: 'theme-chalk',
+            },
+          ],
+        ],
+      },
     loaders: {
       cssModules: {
         modules: {
