@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'plugin:nuxt/recommended',
+    'plugin:vue/strongly-recommended',
     'plugin:vue/recommended',
   ],
   parserOptions: {
@@ -126,6 +127,17 @@ module.exports = {
     'vue/attribute-hyphenation': ['error', 'always'],
     'vue/prop-name-casing': ['error', 'camelCase'],
     'vue/no-lone-template': 'off',
+    'vue/html-indent': 'error',
+    'vue/max-attributes-per-line': ['error', {
+      singleline: {
+        max: 3,
+        allowFirstLine: true,
+      },
+      multiline: {
+        max: 1,
+        allowFirstLine: false,
+      },
+    }],
   },
   overrides: [
     {

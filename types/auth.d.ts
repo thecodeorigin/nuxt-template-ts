@@ -12,6 +12,7 @@ declare interface AuthLogin {
 declare interface AuthUser {
   email: string;
   fullName: string;
+  avatar: string;
 }
 
 declare interface AuthData {

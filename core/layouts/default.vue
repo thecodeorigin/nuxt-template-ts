@@ -29,7 +29,6 @@ export default defineComponent({
 .layoutWrapper {
   display: flex;
   flex-direction: row;
-  background-color: $--color-primary;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -46,6 +45,7 @@ export default defineComponent({
 .layoutPageWrapper {
   flex: 1;
   overflow: auto;
+  padding: 1rem;
 }
 
 </style>

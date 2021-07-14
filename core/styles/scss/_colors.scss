@@ -112,3 +112,11 @@ $palettes: (
     900: mix($--color-black, $--color-dark, 90%),
   ),
 );
+
+@function color($color: primary, $scale: 500) {
+  @if ($scale == null) {
+    @return $color;
+  } @else {
+    @return map-get(map-get($palettes, $color), $scale);
+  }
+}
