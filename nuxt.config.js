@@ -83,6 +83,7 @@ export default {
   i18n: {
     locales: ['en', 'vi'],
     defaultLocale: 'vi',
+    strategy: 'no_prefix',
     vueI18n: {
       fallbackLocale: 'en',
       silentFallbackWarn: true,

@@ -1,16 +1,28 @@
 <template>
   <div :class="$style.sidebarWrapper">
     <div :class="$style.sidebarSection">
-      <el-avatar class="bg-white" :size="45" :src="currentUser.avatar" />
+      <nuxt-link :to="{ name: 'index' }">
+        <el-avatar
+          :class="$style.sidebarAvatar"
+          class="bg-white"
+          :size="45"
+          :src="currentUser.avatar"
+        />
+      </nuxt-link>
     </div>
-    <nuxt-link
-      v-for="(item, index) in sidebarItems"
-      :key="'sidebar-item-' + index"
-      :to="item.route"
-      :class="$style.sidebarItem"
-    >
-      <i :class="item.icon" />
-    </nuxt-link>
+    <div :class="$style.sidebarSection">
+      <nuxt-link
+        v-for="(item, index) in sidebarItems"
+        :key="'sidebar-item-' + index"
+        :to="item.route"
+        :class="[
+          $style.sidebarItem,
+          $route.name === item.route.name && $style.active,
+        ]"
+      >
+        <i :class="item.icon" />
+      </nuxt-link>
+    </div>
     <div :class="$style.sidebarSection">
       <div :class="$style.sidebarItem" class="hover:bg-blue">
         <i class="icon-settings" />
@@ -34,8 +46,16 @@ export default defineComponent({
     const data = reactive({
       sidebarItems: [
         {
+          icon: 'icon-star-o',
+          route: { name: 'index' },
+        },
+        {
           icon: 'icon-user',
-          route: { name: 'index___vi' },
+          route: { name: 'users' },
+        },
+        {
+          icon: 'icon-archive',
+          route: { name: 'products' },
         },
       ],
     });
@@ -66,6 +86,16 @@ export default defineComponent({
   }
 }
 
+.sidebarAvatar {
+  border-radius: 9999px;
+  border: 4px solid color(gray, 100);
+  transition-duration: $duration-base;
+
+  :hover {
+    border: 4px solid color(primary, 700);
+  }
+}
+
 .sidebarItem {
   @include flexCenter();
 
@@ -78,10 +108,18 @@ export default defineComponent({
   color: color(primary, 700);
   box-shadow: $shadow-base;
 
-  &:hover {
+  @mixin active() {
     color: $--color-white;
     background-color: color(primary, 700);
     box-shadow: $shadow-dark;
+  }
+
+  &:hover {
+    @include active();
+  }
+
+  &.active {
+    @include active();
   }
 }
 
