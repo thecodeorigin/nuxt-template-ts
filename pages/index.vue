@@ -1,7 +1,27 @@
 <template>
   <div :class="$style.abc">
-    <span class="text-primary-300">{{ $t('hello') }}</span>
-    <span class="text-warning-700">{{ $t('hello') }}</span>
+    <transition name="slide-fade" mode="out-in">
+      <el-button
+        v-if="$store.getters.locale === 'en'"
+        size="mini"
+        type="primary"
+        @click="$i18n.setLocale('vi')"
+      >
+        {{ $t('changeLocale') }}
+      </el-button>
+      <el-button
+        v-else
+        size="mini"
+        type="danger"
+        @click="$i18n.setLocale('en')"
+      >
+        {{ $t('changeLocale') }}
+      </el-button>
+    </transition>
+    <div>
+      <span class="text-primary-300">{{ $t('hello') }}</span>
+      <span class="text-warning-700">{{ $t('hello') }}</span>
+    </div>
     <ExampleBase />
   </div>
 </template>
@@ -22,7 +42,9 @@ export default defineComponent({
 
 <i18n lang="yaml">
 en:
-  hello: 'hello world!'
+  hello: "hello world!"
+  changeLocale: "Change language"
 vi:
-  hello: 'Xin chào thế giới!'
+  hello: "Xin chào thế giới!"
+  changeLocale: "Đổi ngôn ngữ"
 </i18n>

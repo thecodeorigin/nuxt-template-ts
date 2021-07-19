@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import YAML from 'yaml';
+import webpack from 'webpack';
 
 require('dotenv').config();
 
@@ -42,6 +43,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '@/core/plugins/element-ui' },
+    { src: '@/core/plugins/moment' },
     { src: '@/core/plugins/i18n' },
     { src: '@/core/apis/client' },
     { src: '@/core/apis/auth' },
@@ -67,11 +69,20 @@ export default {
     'nuxt-windicss',
     // https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    // https://www.npmjs.com/package/@nuxtjs/style-resources
+    '@nuxtjs/style-resources',
     [
       '@nuxtjs/eslint-module',
       { fix: true },
     ],
   ],
+
+  styleResources: {
+    scss: [
+      '@/core/styles/scss/all.scss',
+    ],
+    hoistUseStatements: true, // Hoists the "@use" imports. Applies only to "sass", "scss" and "less". Default: false.
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -141,27 +152,30 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    babel:
-      {
-        presets: [['es2015', { modules: false }]],
-        plugins: [
-          [
-            'component',
-            {
-              libraryName: 'element-ui',
-              styleLibraryName: 'theme-chalk',
-            },
-          ],
+    extractCSS: {
+      ignoreOrder: true,
+    },
+    babel: {
+      presets: [['es2015', { modules: false }]],
+      plugins: [
+        [
+          'component',
+          {
+            libraryName: 'element-ui',
+            styleLibraryName: 'theme-chalk',
+          },
         ],
-      },
+      ],
+    },
+    plugins: [
+      // Ignore all locale files of moment.js
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    ],
     loaders: {
       cssModules: {
         modules: {
           localIdentName: process.env.NODE_ENV === 'development' ? '[local]_[hash:base64:5]' : '[hash:base64:8]',
         },
-      },
-      scss: {
-        additionalData: '@import "@/core/styles/scss/all.scss";',
       },
     },
   },

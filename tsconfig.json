@@ -44,6 +44,14 @@
         "./components/index.scss",
         "./components/index.css"
       ],
+      "@constants/*": ["./constants/*"],
+      "@constants": [
+        "./constants/index.js",
+        "./constants/index.json",
+        "./constants/index.vue",
+        "./constants/index.scss",
+        "./constants/index.css"
+      ],
       "@store/*": ["./store/*"],
       "@store": [
         "./store/index.js",
@@ -67,14 +75,6 @@
         "./core/apis/index.vue",
         "./core/apis/index.scss",
         "./core/apis/index.css"
-      ],
-      "@constants/*": ["constants/*"],
-      "@constants": [
-        "constants/index.js",
-        "constants/index.json",
-        "constants/index.vue",
-        "constants/index.scss",
-        "constants/index.css"
       ],
       "@mixins/*": ["./core/mixins/*"],
       "@mixins": [

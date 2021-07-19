@@ -3,4 +3,6 @@ import { RootState } from './state';
 
 export type RootGetters = GetterTree<RootState, RootState>;
 
-export default {} as RootGetters;
+export default {
+  locale: state => state.locale || 'en',
+} as RootGetters;
