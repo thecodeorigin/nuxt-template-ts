@@ -31,9 +31,11 @@
 
     // TSLint
     "ms-vscode.vscode-typescript-tslint-plugin",
-    
+
     // TSLint for Vue
     "prograhammer.tslint-vue",
 
+    // Material icon theme, it's good
+    "pkief.material-icon-theme"
   ]
 }

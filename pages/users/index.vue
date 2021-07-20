@@ -6,7 +6,7 @@
 
 <i18n lang="yaml">
 en:
-  title: "This is the users page!"
+  title: This is the users page!
 vi:
-  title: "Đây là trang người dùng!"
+  title: Đây là trang người dùng!
 </i18n>
