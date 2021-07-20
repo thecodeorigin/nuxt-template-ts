@@ -41,6 +41,7 @@ export default defineComponent({
 </style>
 
 <i18n lang="yaml">
+// prettier-ignore
 en:
   hello: "hello world!"
   changeLocale: "Change language"

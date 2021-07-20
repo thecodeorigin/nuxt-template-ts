@@ -1,5 +1,5 @@
 import fs from 'fs';
-import path from 'path';
+// import path from 'path';
 import YAML from 'yaml';
 import webpack from 'webpack';
 
@@ -128,21 +128,21 @@ export default {
     },
   },
 
-  alias: {
-    // Root folder
-    '~~': path.resolve(__dirname),
-    '@@': path.resolve(__dirname),
-    // Source folder
-    '~': path.resolve(__dirname, './'),
-    '@': path.resolve(__dirname, './'),
-    '@types': path.resolve(__dirname, './types'),
-    '@services': path.resolve(__dirname, './services'),
-    '@constants': path.resolve(__dirname, './constants'),
-    '@components': path.resolve(__dirname, './components'),
-    '@apis': path.resolve(__dirname, './core/apis'),
-    '@mixins': path.resolve(__dirname, './core/mixins'),
-    '@utils': path.resolve(__dirname, './core/utils'),
-  },
+  // alias: {
+  //   // Root folder
+  //   '~~': path.resolve(__dirname),
+  //   '@@': path.resolve(__dirname),
+  //   // Source folder
+  //   '~': path.resolve(__dirname, './'),
+  //   '@': path.resolve(__dirname, './'),
+  //   '@types': path.resolve(__dirname, './types'),
+  //   '@services': path.resolve(__dirname, './services'),
+  //   '@constants': path.resolve(__dirname, './constants'),
+  //   '@components': path.resolve(__dirname, './components'),
+  //   '@apis': path.resolve(__dirname, './core/apis'),
+  //   '@mixins': path.resolve(__dirname, './core/mixins'),
+  //   '@utils': path.resolve(__dirname, './core/utils'),
+  // },
 
   terser: {
     // https://github.com/webpack-contrib/terser-webpack-plugin#parallel
@@ -177,6 +177,14 @@ export default {
           localIdentName: process.env.NODE_ENV === 'development' ? '[local]_[hash:base64:5]' : '[hash:base64:8]',
         },
       },
+    },
+    extend(config, { isDev, isClient }) {
+      if (isDev) {
+        config.devtool = isClient ? 'source-map' : 'inline-source-map';
+      }
+
+      // Set up all the aliases we use in our app.
+      Object.assign(config.resolve.alias, require('./aliases.config').webpack);
     },
   },
 };

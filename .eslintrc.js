@@ -9,6 +9,7 @@ module.exports = {
     'plugin:nuxt/recommended',
     'plugin:vue/strongly-recommended',
     'plugin:vue/recommended',
+    'prettier',
   ],
   parserOptions: {
     project: ['./tsconfig.json'],
@@ -18,6 +19,7 @@ module.exports = {
   ],
   // Checkout the typescript rules: https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#extension-rules
   rules: {
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
     'padding-line-between-statements': [
       'error',
       { blankLine: 'always', prev: '*', next: 'return' },
