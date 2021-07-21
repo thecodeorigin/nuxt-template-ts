@@ -1,5 +1,4 @@
 import fs from 'fs';
-// import path from 'path';
 import YAML from 'yaml';
 import webpack from 'webpack';
 
@@ -38,6 +37,7 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/core/styles/css/all.css',
+    '@/core/styles/scss/all.scss',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -128,22 +128,6 @@ export default {
     },
   },
 
-  // alias: {
-  //   // Root folder
-  //   '~~': path.resolve(__dirname),
-  //   '@@': path.resolve(__dirname),
-  //   // Source folder
-  //   '~': path.resolve(__dirname, './'),
-  //   '@': path.resolve(__dirname, './'),
-  //   '@types': path.resolve(__dirname, './types'),
-  //   '@services': path.resolve(__dirname, './services'),
-  //   '@constants': path.resolve(__dirname, './constants'),
-  //   '@components': path.resolve(__dirname, './components'),
-  //   '@apis': path.resolve(__dirname, './core/apis'),
-  //   '@mixins': path.resolve(__dirname, './core/mixins'),
-  //   '@utils': path.resolve(__dirname, './core/utils'),
-  // },
-
   terser: {
     // https://github.com/webpack-contrib/terser-webpack-plugin#parallel
     parallel: true,
@@ -154,18 +138,6 @@ export default {
   build: {
     extractCSS: {
       ignoreOrder: true,
-    },
-    babel: {
-      presets: [['es2015', { modules: false }]],
-      plugins: [
-        [
-          'component',
-          {
-            libraryName: 'element-ui',
-            styleLibraryName: 'theme-chalk',
-          },
-        ],
-      ],
     },
     plugins: [
       // Ignore all locale files of moment.js

@@ -9,6 +9,7 @@
       >
         {{ $t('changeLocale') }}
       </el-button>
+
       <el-button
         v-else
         size="mini"
@@ -19,7 +20,7 @@
       </el-button>
     </transition>
     <div>
-      <span class="text-primary-300">{{ $t('hello') }}</span>
+      <span class="text-primary-300"> {{ $t('hello') }}</span>
       <span class="text-warning-700">{{ $t('hello') }}</span>
     </div>
     <ExampleBase />

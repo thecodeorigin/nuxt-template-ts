@@ -41,7 +41,6 @@
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@types/slug": "^5.0.0",
     "@types/webpack-env": "^1.16.2",
-    "babel-plugin-component": "^1.1.1",
     "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^2.0.0",

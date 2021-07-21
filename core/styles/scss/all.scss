@@ -34,7 +34,8 @@ body {
   --color-gray: #{$--color-gray};
   @each $colorname, $palette in $palettes {
     @each $key, $value in $palette {
-      $keyname: "--color-" + $colorname + "-" + $key;
+      $keyname: '--color-' + $colorname + '-' + $key;
+
       #{$keyname}: #{$value};
     }
   }
