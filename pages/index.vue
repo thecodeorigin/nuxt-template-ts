@@ -3,6 +3,7 @@
     <transition name="slide-fade" mode="out-in">
       <el-button
         v-if="$store.getters.locale === 'en'"
+        key="en-button"
         size="mini"
         type="primary"
         @click="$i18n.setLocale('vi')"
@@ -12,6 +13,7 @@
 
       <el-button
         v-else
+        key="vi-button"
         size="mini"
         type="danger"
         @click="$i18n.setLocale('en')"

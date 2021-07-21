@@ -10,7 +10,7 @@ export default ({ app, $axios, error: nuxtError }: Context, inject: Inject): voi
   const clientApi: ClientApi = $axios.create({
     headers: {
       common: {
-        Accept: 'application/json',
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
     },
