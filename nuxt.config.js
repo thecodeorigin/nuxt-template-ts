@@ -34,6 +34,17 @@ export default {
     middleware: 'core/middleware',
   },
 
+  layoutTransition: {
+    // Is "layout" by default
+    name: 'fade',
+    mode: 'out-in',
+  },
+  pageTransition: {
+    // Is "page" by default
+    name: 'slide-fade',
+    mode: 'out-in',
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/core/styles/css/all.css',
@@ -79,7 +90,9 @@ export default {
 
   styleResources: {
     scss: [
-      '@/core/styles/scss/all.scss',
+      '@/core/styles/scss/_colors.scss',
+      '@/core/styles/scss/_mixins.scss',
+      '@/core/styles/scss/_variables.scss',
     ],
     hoistUseStatements: true, // Hoists the "@use" imports. Applies only to "sass", "scss" and "less". Default: false.
   },
@@ -120,6 +133,12 @@ export default {
     '.nuxtignore',
   ],
 
+  watchers: {
+    webpack: {
+      ignored: /node_modules/,
+    },
+  },
+
   typescript: {
     typeCheck: {
       eslint: {
@@ -136,6 +155,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: [
+      /^element-ui/,
+    ],
     extractCSS: {
       ignoreOrder: true,
     },
@@ -154,7 +176,6 @@ export default {
       if (isDev) {
         config.devtool = isClient ? 'source-map' : 'inline-source-map';
       }
-
       // Set up all the aliases we use in our app.
       Object.assign(config.resolve.alias, require('./aliases.config').webpack);
     },
