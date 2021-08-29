@@ -1,10 +1,15 @@
 import { ActionTree } from 'vuex';
 import { RootState } from './state';
+const cookieparser = process.server ? require('cookieparser') : undefined;
 
 export type RootAction = ActionTree<RootState, RootState>;
 
 export default {
-  nuxtServerInit: ({ commit }) => {
+  nuxtServerInit({ commit }, { req }) {
+    const cookie = cookieparser.parse(req.headers.cookie);
+
+    commit('SET_LOCALE', cookie.lang);
+
     commit('auth/SET_AUTH', {
       user: {
         email: 'contact@thecodeorigin.com',

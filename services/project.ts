@@ -1,4 +1,5 @@
-import { Service, ServiceContext } from '@/types/service';
+import { useContext } from '@nuxtjs/composition-api';
+import { Service } from '@/types/service';
 
 interface ProjectService extends Service {
   getProjects: () => Promise<Array<Project>>;
@@ -8,21 +9,19 @@ interface ProjectService extends Service {
   deleteProject: (slug: string) => Promise<Project>;
 }
 
-// Pass context from Vue component or Vuex
-// const context = useContext();
-// const { getProjects } = useProjectService(context);
-export const useProjectService = ({ $clientApi, $authApi }: ServiceContext): ProjectService => {
-  const endpoint = '/projects';
+// You must pass "this" like useAuthService(this) in Vuex to get the $axios instance
+export const useProjectService = (context: any): ProjectService => {
+  const { $axios } = context || useContext();
 
-  const getProjects = (): Promise<Array<Project>> => $clientApi.$get(endpoint);
+  const getProjects = (): Promise<Array<Project>> => $axios.$get('/projects');
 
-  const getProject = (slug: string): Promise<Project> => $clientApi.$get(`${endpoint}/${slug}`);
+  const getProject = (slug: string): Promise<Project> => $axios.$get(`/projects/${slug}`);
 
-  const createProject = (form: Project): Promise<Project> => $authApi.$post(endpoint, form);
+  const createProject = (form: Project): Promise<Project> => $axios.$post('/projects', form);
 
-  const updateProject = (slug: string, form: Project): Promise<Project> => $authApi.$patch(`${endpoint}/${slug}`, form);
+  const updateProject = (slug: string, form: Project): Promise<Project> => $axios.$patch(`/projects/${slug}`, form);
 
-  const deleteProject = (slug: string): Promise<Project> => $authApi.$delete(`${endpoint}/${slug}`);
+  const deleteProject = (slug: string): Promise<Project> => $axios.$delete(`/projects/${slug}`);
 
   return {
     getProjects,

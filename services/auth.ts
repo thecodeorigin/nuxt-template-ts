@@ -1,4 +1,5 @@
-import { Service, ServiceContext } from '@/types/service';
+import { useContext } from '@nuxtjs/composition-api';
+import { Service } from '@/types/service';
 import { AxiosResponse } from 'axios';
 
 interface AuthService extends Service {
@@ -7,16 +8,15 @@ interface AuthService extends Service {
   getAuth: () => Promise<AxiosResponse>;
 }
 
-// Pass context from Vuex
-// const { register } = useAuthService(context);
-export const useAuthService = ({ $clientApi, $authApi }: ServiceContext): AuthService => {
-  const endpoint = '/auth';
+// You must pass "this" like useAuthService(this) in Vuex to get the $axios instance
+export const useAuthService = (context: any): AuthService => {
+  const { $axios } = context || useContext();
 
-  const register = (form: AuthRegister): Promise<AxiosResponse> => $clientApi.$post(`${endpoint}/register`, form);
+  const register = (form: AuthRegister): Promise<AxiosResponse> => $axios.$post('/auth/register', form);
 
-  const login = (form: AuthLogin): Promise<AxiosResponse> => $authApi.$post(`${endpoint}/login`, form);
+  const login = (form: AuthLogin): Promise<AxiosResponse> => $axios.$post('/auth/login', form);
 
-  const getAuth = (): Promise<AxiosResponse> => $authApi.$get(`${endpoint}/me`);
+  const getAuth = (): Promise<AxiosResponse> => $axios.$get('/auth/me');
 
   return {
     register,
